@@ -1,8 +1,6 @@
 package web.model;
 
-
 public class Car {
-
     private String model;
     private String series;
     private String color;
@@ -41,5 +39,4 @@ public class Car {
     public String getColor() {
         return color;
     }
-
 }

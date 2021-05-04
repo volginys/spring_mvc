@@ -6,14 +6,14 @@
     <title></title>
 </head>
 <body>
-<div th:if="${not #lists.isEmpty(cars)}">
+<div >
     <table class="table table-striped">
         <tr>
             <th>Model</th>
             <th>Series</th>
             <th>Color</th>
         </tr>
-        <tr th:each="car :${cars}">
+        <tr th:each="car:${cars}">
             <td th:text="${car.getModel()}"></td>
             <td th:text="${car.getSeries()}"></td>
             <td th:text="${car.getColor()}"></td>
@@ -22,3 +22,4 @@
 </div>
 </body>
 </html>
+

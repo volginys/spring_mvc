@@ -2,12 +2,11 @@ package web.dao;
 
 import org.springframework.stereotype.Repository;
 import web.model.Car;
-
 import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class CarDAOImpl {
+public class CarDAOImpl implements CarDAO {
 
     private List<Car> carList;
 
@@ -24,18 +23,4 @@ public class CarDAOImpl {
         return carList;
     }
 
-    public void add(Car car){
-        carList.add(car);
-    }
-
-    public Car findByModel(String carModel) {
-        return carList.stream().filter(p -> p.getModel().equals(carModel)).findFirst().get();
-    }
-
-    public void updateByModel(String carModel, Car car) {
-        Car carToUpdate = findByModel(carModel);
-        carToUpdate.setModel(car.getModel());
-        carToUpdate.setSeries(car.getSeries());
-        carToUpdate.setColor(car.getColor());
-    }
 }
