@@ -11,8 +11,12 @@ import java.util.List;
 @Controller
 @RequestMapping(value = "/cars")
 public class CarsController {
-    @Autowired
+
     private CarService carService;
+
+    public CarsController(@Autowired CarService carService) {
+        this.carService = carService;
+    }
 
     @GetMapping()
     public String countCars(@RequestParam(value = "count", required = false) String count,
@@ -23,10 +27,10 @@ public class CarsController {
             if(count!=null){
                 amount = Integer.parseInt(count);
                 if(amount < 0){
-                    throw new Exception();
+                    throw new ArrayIndexOutOfBoundsException();
                 }
             }
-        } catch (Exception e) {
+        } catch (Throwable e) {
             return "/error";
         }
         if ((amount >= 0) & (amount < 5)) {
